@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>E-commerce Performance Analysis: Columbia Pictures Aquaverse (18/03/2026 - 18/04/2026)</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#1f2937;margin:0;padding:24px}
+.wrap{max-width:1200px;margin:0 auto}
+.section{background:#fff;border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+h1,h2{margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.metric{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:14px}
+.metric-label{font-size:12px;color:#6b7280;margin-bottom:6px;text-transform:uppercase}
+.metric-value{font-size:24px;font-weight:700}
+.card{background:#fafafa;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:top}
+th{background:#f9fafb}
+ul{margin:8px 0 0 18px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
 
+<div class="section">
+  <h1>E-commerce Performance Analysis: Columbia Pictures Aquaverse (18/03/2026 - 18/04/2026)</h1>
+  <p><b>Status:</b> mixed</p>
+  <p>Overall revenue is strong, primarily driven by search and shop organic traffic. However, efficiency issues with some ad campaigns, several non-performing products, and a significant order cancellation rate need immediate attention. Customer retention also shows room for improvement.</p>
+  <p><b>Top Priority:</b> Address high order cancellation rate and optimize underperforming ad campaigns.</p>
+</div>
+
+<div class="section">
+  <h2>Key Metrics</h2>
+  <div class="grid">
+    <div class="metric"><div class="metric-label">Revenue</div><div class="metric-value">2892906</div></div>
+    <div class="metric"><div class="metric-label">Orders</div><div class="metric-value">1147</div></div>
+    <div class="metric"><div class="metric-label">Traffic</div><div class="metric-value">46514</div></div>
+    <div class="metric"><div class="metric-label">Conversion Rate</div><div class="metric-value">2.41</div></div>
+    <div class="metric"><div class="metric-label">Ad Spend</div><div class="metric-value">141075.69</div></div>
+    <div class="metric"><div class="metric-label">ROAS</div><div class="metric-value">9.64</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Main Problems</h2>
+  
+    <div class="card">
+      <b>Orders</b>
+      <p>83 cancelled orders, representing 227,329 THB in lost revenue, which is significant relative to total sales.</p>
+      <p><b>Possible reason:</b> Inventory management issues, payment processing problems, or customer service related.</p>
+    </div>
+  
+    <div class="card">
+      <b>Ad Spend / ROAS</b>
+      <p>Multiple 'Ended' product ad campaigns incurred significant ad spend with 0 GMV (e.g., product IDs 55808120915, 56407965662, 49057985059) indicating wasted budget.</p>
+      <p><b>Possible reason:</b> Ineffective targeting, irrelevant product-ad match, or campaigns ended prematurely without achieving goals.</p>
+    </div>
+  
+    <div class="card">
+      <b>Product Sales / Visibility</b>
+      <p>Several products show 0 revenue (e.g., product IDs 14296215682, 20671752344) or are listed as 'ไม่แสดง' (not displayed) despite being in the product list (e.g., product ID 25972265440, revenue 8,080).</p>
+      <p><b>Possible reason:</b> Product listing errors, stock unavailability, or lack of market demand for specific bundles/vouchers.</p>
+    </div>
+  
+    <div class="card">
+      <b>Customer Retention</b>
+      <p>Only 55 out of 951 total buyers were returning customers, despite an overall repeat purchase rate of 15.77% (based on orders). This suggests a strong reliance on new customer acquisition.</p>
+      <p><b>Possible reason:</b> Lack of structured customer loyalty programs, insufficient post-purchase engagement, or the nature of products being one-time event purchases.</p>
+    </div>
+  
+</div>
+
+<div class="section two-col">
+  <div>
+    <h2>Top Products</h2>
+    <table>
+      <tr><th>ID</th><th>Reason</th><th>Action</th></tr>
+      
+        <tr>
+          <td>42127517988</td>
+          <td>Highest revenue contributor (606,897 THB), indicating strong market demand for this bundle.</td>
+          <td>Scale advertising efforts for this product, explore creating similar high-value bundles.</td>
+        </tr>
+      
+        <tr>
+          <td>19071758078</td>
+          <td>Second highest revenue (594,849 THB) and high order volume (364.08 orders, 738 items sold), suggesting broad appeal for single-day passes.</td>
+          <td>Feature prominently in organic and paid channels, identify upsell opportunities for add-ons.</td>
+        </tr>
+      
+        <tr>
+          <td>52953653251</td>
+          <td>Third highest revenue (441,417 THB), indicating good performance for a 2-ticket bundle with food credit.</td>
+          <td>Analyze customer segment for this bundle, cross-promote related offers.</td>
+        </tr>
+      
+    </table>
+  </div>
+  <div>
+    <h2>Worst Products</h2>
+    <table>
+      <tr><th>ID</th><th>Reason</th><th>Action</th></tr>
+      
+        <tr>
+          <td>14296215682</td>
+          <td>Generated 0 THB in revenue and no orders, indicating no sales or a non-existent listing.</td>
+          <td>Verify product listing status and availability; if no sales, consider delisting or significant revision.</td>
+        </tr>
+      
+        <tr>
+          <td>20671752344</td>
+          <td>Generated 0 THB in revenue and no orders, similar to 14296215682.</td>
+          <td>Investigate why this product had no sales. Potentially delist if not viable.</td>
+        </tr>
+      
+        <tr>
+          <td>25972265440</td>
+          <td>Listed as 'ไม่แสดง' (not displayed) despite having 8,080 THB in revenue from videos, indicating a critical visibility issue affecting potential sales.</td>
+          <td>Immediately rectify product display status to 'normal' to maximize sales potential.</td>
+        </tr>
+      
+    </table>
+  </div>
+</div>
+
+<div class="section two-col">
+  <div>
+    <h2>Immediate Actions</h2>
+    <ul><li>Investigate and resolve the root causes of order cancellations to recover lost revenue.</li><li>Pause or re-evaluate all ad campaigns with 0 GMV to stop wasted ad spend.</li><li>Rectify the display status of product ID 25972265440 to make it visible to customers.</li></ul>
+  </div>
+  <div>
+    <h2>Next Steps</h2>
+    <ul><li>Develop and implement a customer loyalty program to improve the low returning buyer rate.</li><li>Allocate more ad budget and optimize campaigns for top-performing products (IDs 42127517988, 19071758078, 52953653251).</li><li>Conduct a comprehensive review of all zero-revenue products and underperforming items in the catalog to either optimize or remove them.</li></ul>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
