@@ -2,106 +2,392 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reports</title>
+
   <style>
-    :root { --h: 56px; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:#0b1220; color:#e5e7eb; }
-    header{
-      position: sticky; top:0; z-index:10;
-      height: var(--h);
-      display:flex; align-items:center; gap:10px;
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #0b1220;
+      color: #e5e7eb;
+
+      /* Makes iframe automatically use remaining space */
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      width: calc(100% - 20px);
+      margin: 10px;
       padding: 10px 12px;
-      background: rgba(15,23,42,.92);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+
       backdrop-filter: blur(8px);
-      padding-bottom: 10px;
-      margin: 10px
+      -webkit-backdrop-filter: blur(8px);
     }
-    .tabs { display:flex; gap:8px; flex-wrap:wrap; }
-    button.tab{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:#e5e7eb;
-      padding:8px 10px;
+
+    /* =========================
+       REPORT TABS
+    ========================== */
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      flex: 1;
+      min-width: 0;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    button.tab {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: #e5e7eb;
+
+      padding: 10px 14px;
+
       border-radius: 999px;
+
+      font-size: 14px;
       font-weight: 700;
-      cursor:pointer;
-      padding: 10px;
+      line-height: 1.2;
+
+      cursor: pointer;
+
+      white-space: nowrap;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
     }
-    button.tab.active{
-      background: rgba(255,255,255,.16);
-      border-color: rgba(255,255,255,.28);
+
+    button.tab:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.22);
     }
-    .spacer { flex:1; }
-    button.small{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:#e5e7eb;
-      padding:8px 10px;
+
+    button.tab:active {
+      transform: scale(0.98);
+    }
+
+    button.tab.active {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    /* =========================
+       RELOAD BUTTON
+    ========================== */
+
+    button.small {
+      flex-shrink: 0;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: #e5e7eb;
+
+      padding: 10px 14px;
+
       border-radius: 12px;
+
+      font-size: 14px;
       font-weight: 700;
-      cursor:pointer;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
-    iframe{
-      width:100%;
-      height: calc(100vh - var(--h));
-      border:0;
-      background:#fff; /* report background */
+
+    button.small:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    /* =========================
+       REPORT VIEWER
+    ========================== */
+
+    iframe {
+      flex: 1;
+      min-height: 0;
+
+      display: block;
+
+      width: 100%;
+      border: 0;
+
+      background: #fff;
+    }
+
+    /* =========================
+       TABLET
+    ========================== */
+
+    @media (max-width: 900px) {
+      header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .tabs {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      button.tab {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+
+        border-radius: 12px;
+      }
+
+      button.small {
+        width: 100%;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 650px) {
+      header {
+        margin: 6px;
+        width: calc(100% - 12px);
+
+        padding: 8px;
+        gap: 8px;
+
+        border-radius: 12px;
+      }
+
+      .tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      button.tab {
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+
+      button.small {
+        padding: 10px;
+        font-size: 13px;
+      }
+    }
+
+    /* =========================
+       SMALL PHONES
+    ========================== */
+
+    @media (max-width: 420px) {
+      .tabs {
+        grid-template-columns: 1fr;
+      }
+
+      button.tab {
+        text-align: left;
+        padding: 11px 14px;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <div class="tabs">
-      <button class="tab" data-key="a" data-src="listening.html">Social Listening Report</button>
-      <button class="tab" data-key="b" data-src="social.html">Social Media Report</button>
-      <button class="tab" data-key="b" data-src="competitor.html">Competitor Report</button>
-      <button class="tab" data-key="b" data-src="inquiry.html">Inquiry Report</button>
-      <button class="tab" data-key="b" data-src="lazada.html">Lazada Report</button>
-      <button class="tab" data-key="b" data-src="shopee.html">Shopee Report</button>
-      <button class="tab" data-key="b" data-src="ads.html">Ads Report</button>
-      <button class="tab" data-key="b" data-src="seo.html">Seo Report</button>
-       <button class="tab" data-key="b" data-src="seller.html">Seller Report</button>
+
+      <button
+        class="tab"
+        data-key="listening"
+        data-src="listening.html"
+      >
+        Social Listening Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="social"
+        data-src="social.html"
+      >
+        Social Media Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="competitor"
+        data-src="competitor.html"
+      >
+        Competitor Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="inquiry"
+        data-src="inquiry.html"
+      >
+        Inquiry Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="lazada"
+        data-src="lazada.html"
+      >
+        Lazada Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="shopee"
+        data-src="shopee.html"
+      >
+        Shopee Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="ads"
+        data-src="ads.html"
+      >
+        Ads Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="seo"
+        data-src="seo.html"
+      >
+        SEO Report
+      </button>
+
+      <button
+        class="tab"
+        data-key="seller"
+        data-src="seller.html"
+      >
+        Seller Report
+      </button>
+
     </div>
-    <div class="spacer"></div>
-    <button class="small" id="reload">Reload</button>
+
+    <button class="small" id="reload">
+      Reload
+    </button>
   </header>
 
-  <iframe id="viewer" src="" loading="lazy"></iframe>
+  <iframe
+    id="viewer"
+    src=""
+    loading="lazy"
+  ></iframe>
 
   <script>
     const tabs = [...document.querySelectorAll(".tab")];
     const viewer = document.getElementById("viewer");
     const reloadBtn = document.getElementById("reload");
 
-    function setActive(key, src) {
-      tabs.forEach(t => t.classList.toggle("active", t.dataset.key === key));
+    function setActive(key, src, updateHash = true) {
 
-      // cache-bust so you always see the newest report after updates
+      // Only highlight the exact selected tab
+      tabs.forEach(tab => {
+        tab.classList.toggle(
+          "active",
+          tab.dataset.key === key
+        );
+      });
+
+      // Cache bust so newest report is always loaded
       const url = new URL(src, window.location.href);
-      url.searchParams.set("v", Date.now()); // avoids stale CDN caching
+      url.searchParams.set("v", Date.now());
+
       viewer.src = url.toString();
 
-      // keep state in URL hash so you can share links
-      window.location.hash = key;
+      // Store selected report in URL
+      if (updateHash) {
+        history.replaceState(
+          null,
+          "",
+          "#" + encodeURIComponent(key)
+        );
+      }
     }
 
-    tabs.forEach(btn => {
-      btn.addEventListener("click", () => setActive(btn.dataset.key, btn.dataset.src));
+    // Report button clicks
+    tabs.forEach(button => {
+      button.addEventListener("click", () => {
+        setActive(
+          button.dataset.key,
+          button.dataset.src
+        );
+      });
     });
 
+    // Reload currently selected report
     reloadBtn.addEventListener("click", () => {
-      // reload same tab (also cache-bust)
-      const active = tabs.find(t => t.classList.contains("active")) || tabs[0];
-      setActive(active.dataset.key, active.dataset.src);
+      const active =
+        tabs.find(tab => tab.classList.contains("active"))
+        || tabs[0];
+
+      setActive(
+        active.dataset.key,
+        active.dataset.src
+      );
     });
 
-    // on load: choose hash tab if present
-    const hashKey = (window.location.hash || "").replace("#", "");
-    const initial = tabs.find(t => t.dataset.key === hashKey) || tabs[0];
-    setActive(initial.dataset.key, initial.dataset.src);
+    // Select report from URL hash when opening page
+    const hashKey = decodeURIComponent(
+      (window.location.hash || "").replace("#", "")
+    );
+
+    const initial =
+      tabs.find(tab => tab.dataset.key === hashKey)
+      || tabs[0];
+
+    setActive(
+      initial.dataset.key,
+      initial.dataset.src,
+      false
+    );
   </script>
+
 </body>
 </html>
