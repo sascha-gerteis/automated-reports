@@ -23,7 +23,7 @@ const num=str=>{const v=Number(String(str??"").replace(/[^\d.\-]/g,""));return N
 const short=str=>{const n=num(str);return n===null?"Unavailable":Math.abs(n)>=1e6?(n/1e6).toFixed(2).replace(/\.00$/,"")+"M":Math.abs(n)>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,"")+"K":n.toLocaleString("en-US")};
 const clean=str=>text({textContent:str});
 const metric=(root,selector,labelSelector,valueSelector,label)=> {
-  const match=[...root.querySelectorAll(selector)].find(el=>text(el.querySelector(labelSelector)).toLowerCase()===label.toLowerCase());
+  const match=[...root.querySelectorAll(selector)].find(el=>(text(el.querySelector(labelSelector)).toLowerCase()===label.toLowerCase()||text(el.querySelector(labelSelector)).toLowerCase().replace(/^[^a-z0-9]+/i,"").trim()===label.toLowerCase()));
   return numeric(text(match?.querySelector(valueSelector)));
 };
 function nestedDocument(doc,index){
