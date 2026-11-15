@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1223">
+  <meta name="theme-color" content="#f5f7fa">
   <meta name="description" content="Aquaverse's unified executive dashboard for social, customer, advertising, competitor, search, and commerce reports.">
-  <title>Aquaverse | Intelligence Hub</title>
+  <title>Aquaverse | Reports Overview</title>
   <link rel="stylesheet" href="dashboard.css">
   <script src="dashboard.js" defer></script>
 </head>
@@ -13,10 +13,10 @@
   <div class="app-shell">
     <aside class="sidebar" aria-label="Primary navigation">
       <a href="#overview" class="brand" data-route="overview">
-        <span class="brand-symbol" aria-hidden="true"><span class="brand-wave">≈</span></span>
-        <span class="brand-copy"><strong>AQUAVERSE</strong><small>INTELLIGENCE HUB</small></span>
+        <span class="brand-symbol" aria-hidden="true"><span class="brand-wave">A</span></span>
+        <span class="brand-copy"><strong>AQUAVERSE</strong><small>REPORTS</small></span>
       </a>
-      <div class="workspace-chip"><span class="workspace-avatar" aria-hidden="true">A</span><span class="workspace-copy"><strong>Park Intelligence</strong><small>Executive workspace</small></span><span class="workspace-indicator" aria-hidden="true"></span></div>
+      <div class="workspace-chip"><span class="workspace-avatar" aria-hidden="true">A</span><span class="workspace-copy"><strong>Reporting</strong><small>Marketing &amp; operations</small></span><span class="workspace-indicator" aria-hidden="true"></span></div>
       <nav class="navigation" aria-label="Reports">
         <div class="nav-caption">WORKSPACE</div>
         <a class="nav-item active" href="#overview" data-route="overview"><span class="nav-icon" aria-hidden="true">◫</span><span>Overview</span></a>
@@ -46,16 +46,16 @@
 
       <section class="page overview-page" id="overview-page" aria-labelledby="overview-title">
         <div class="hero">
-          <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> EXECUTIVE OVERVIEW <span class="hero-separator">/</span> ONE CONNECTED VIEW</div>
-            <h1 id="overview-title">The bigger picture, <em>at a glance.</em></h1>
-            <p>A single view across marketing, customer experience, competitors and sales. Open any report to explore the complete data and recommendations.</p>
-            <div class="hero-meta"><span class="meta-bullet"></span><span id="connected-count">9 reports in the library</span><span class="meta-divider"></span><span>Source-based snapshots, not a live data feed</span></div>
+          <div class="hero-copy"><div class="eyebrow">Reporting overview</div>
+            <h1 id="overview-title">Performance overview</h1>
+            <p>Social, advertising, customer feedback and commercial performance. Select any report to review its full findings.</p>
+            <div class="hero-meta"><span class="meta-bullet"></span><span id="connected-count">9 reports in the library</span><span class="meta-divider"></span><span>From saved report snapshots</span></div>
           </div>
           <div class="hero-art" aria-hidden="true"><div class="art-orbit orbit-outer"></div><div class="art-orbit orbit-middle"></div><div class="art-orbit orbit-inner"></div><div class="art-core">A<span>·</span></div><span class="art-spark spark-one"></span><span class="art-spark spark-two"></span></div>
         </div>
 
-        <div class="reporting-note"><span class="note-icon" aria-hidden="true">ⓘ</span><span><strong>Read metrics by their source period.</strong> Social, ads, sentiment, inquiries and marketplace exports do not necessarily cover the same dates. Missing values are shown as unavailable, never counted as zero.</span></div>
-        <div class="section-row"><div><span class="section-kicker">01 / KEY SIGNALS</span><h2>Business pulse</h2></div><span class="section-aside">Directly extracted from the report files</span></div>
+        <div class="reporting-note"><span class="note-icon" aria-hidden="true">ⓘ</span><span><strong>Different reporting periods:</strong> these reports do not share the same date range. Figures are shown as captured in their source reports, with missing values marked as unavailable.</span></div>
+        <div class="section-row"><div><span class="section-kicker">01 / KEY SIGNALS</span><h2>Key metrics</h2></div><span class="section-aside">Directly extracted from the report files</span></div>
         <div class="kpi-grid" id="kpi-grid" aria-live="polite">
           <div class="kpi-tile loading-tile">Loading social performance…</div>
           <div class="kpi-tile loading-tile">Loading customer sentiment…</div>
@@ -63,18 +63,18 @@
           <div class="kpi-tile loading-tile">Loading advertising spend…</div>
         </div>
 
-        <div class="section-row"><div><span class="section-kicker">02 / ANALYSIS</span><h2>Performance highlights</h2></div><span class="section-aside">Thailand &amp; India / customer feedback</span></div>
+        <div class="section-row"><div><span class="section-kicker">02 / ANALYSIS</span><h2>Highlights</h2></div><span class="section-aside">Thailand &amp; India / customer feedback</span></div>
         <div class="highlights-grid">
           <article class="panel growth-panel"><div class="panel-top"><div><div class="panel-eyebrow">SOCIAL PERFORMANCE</div><h3>Reach across markets</h3></div><a class="panel-link" href="#social" data-route="social" aria-label="Open social media report">View report <span aria-hidden="true">↗</span></a></div><div id="social-highlights" class="panel-body">Reading the social report…</div></article>
           <article class="panel sentiment-panel"><div class="panel-top"><div><div class="panel-eyebrow">CUSTOMER VOICE</div><h3>What guests are saying</h3></div><a class="panel-link" href="#listening" data-route="listening" aria-label="Open customer sentiment report">View report <span aria-hidden="true">↗</span></a></div><div id="sentiment-highlights" class="panel-body">Reading the listening report…</div></article>
         </div>
 
-        <div class="section-row"><div><span class="section-kicker">03 / ACTIONABLE SIGNALS</span><h2>Needs attention</h2></div><span class="section-aside">Source-backed issues, not inferred scores</span></div>
+        <div class="section-row"><div><span class="section-kicker">03 / ACTIONABLE SIGNALS</span><h2>Items to review</h2></div><span class="section-aside">Source-backed issues, not inferred scores</span></div>
         <div class="watchlist" id="watchlist" aria-live="polite"><p class="inline-loading">Checking report coverage and dates…</p></div>
 
-        <div class="section-row library-heading"><div><span class="section-kicker">04 / REPORT LIBRARY</span><h2>All your reports <span class="section-count" id="library-count">09</span></h2></div><div class="filter-group" id="report-filters" role="group" aria-label="Filter report cards"><button type="button" class="filter-btn selected" data-filter="all" aria-pressed="true">All</button><button type="button" class="filter-btn" data-filter="marketing" aria-pressed="false">Marketing</button><button type="button" class="filter-btn" data-filter="customer" aria-pressed="false">Customers</button><button type="button" class="filter-btn" data-filter="market" aria-pressed="false">Market &amp; sales</button></div></div>
+        <div class="section-row library-heading"><div><span class="section-kicker">04 / REPORT LIBRARY</span><h2>Report library <span class="section-count" id="library-count">09</span></h2></div><div class="filter-group" id="report-filters" role="group" aria-label="Filter report cards"><button type="button" class="filter-btn selected" data-filter="all" aria-pressed="true">All</button><button type="button" class="filter-btn" data-filter="marketing" aria-pressed="false">Marketing</button><button type="button" class="filter-btn" data-filter="customer" aria-pressed="false">Customers</button><button type="button" class="filter-btn" data-filter="market" aria-pressed="false">Market &amp; sales</button></div></div>
         <div class="report-grid" id="report-grid" aria-live="polite"></div>
-        <footer class="page-footer">Aquaverse Intelligence Hub <span aria-hidden="true">·</span> Reports are read from this repository; the original report pages remain unchanged.</footer>
+        <footer class="page-footer">Aquaverse reporting <span aria-hidden="true">·</span> Reports are read from this repository; the original report pages remain unchanged.</footer>
       </section>
 
       <section class="page full-report-page" id="report-page" aria-labelledby="report-title" hidden>
