@@ -62,7 +62,7 @@ function extractInquiry(doc){
   const stampText = text(
   doc.querySelector('.footer-sources .timestamp'));
   const generated = stampText.match(/\b\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}\s+UTC\b/)?.[0] || null;
-  return{inquiries:get("Total inquiries"),coverage:get("Coverage"),topFive:get("Top 5 total"),topIntent:text(intent)||null,messenger:metric(doc,".source-item",".source-name",".source-percent","Messenger"),period:generated?"Generated "+generated:"Month to date (see report)"};
+  return{inquiries:get("Customer inquiries")||get("Total inquiries"),coverage:get("Coverage"),topFive:get("Top 5 total"),topIntent:text(intent)||null,messenger:metric(doc,".source-item",".source-name",".source-percent","Messenger"),period:generated?"Generated "+generated:"Month to date (see report)"};
 }
 function extractCompetitor(doc){
   const get=l=>metric(doc,".summary-grid .summary-card",".label",".value",l);
