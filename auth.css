@@ -1,0 +1,42 @@
+/* Login-only presentation. The existing dashboard CSS is unchanged. */
+[hidden] { display: none !important; }
+.auth-screen {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: 24px; background: linear-gradient(140deg,#eef5f9 0%,#f7f9fc 65%,#e8f5f2 100%);
+  font-family: Inter,"Segoe UI",Arial,sans-serif; color: #21344a;
+}
+.auth-card {
+  width: min(100%, 420px); padding: 38px; border: 1px solid #dae5ed; border-radius: 18px;
+  background: #fff; box-shadow: 0 22px 65px rgba(19,51,79,.10);
+}
+.auth-brand { display: flex; align-items: center; gap: 11px; margin-bottom: 32px; }
+.auth-brand-icon {
+  display: grid; place-items: center; width: 38px; height: 38px; border-radius: 8px;
+  background: #184768; color: #fff; font-weight: 800; font-size: 20px;
+}
+.auth-brand strong { display: block; font-size: 15px; letter-spacing: .8px; color: #1b4868; }
+.auth-brand small { display: block; font-size: 9px; letter-spacing: 1.6px; color: #8293a4; margin-top: 3px; }
+.auth-card h1 { margin: 0; font-size: 27px; letter-spacing: -.6px; color: #162b42; }
+.auth-subtitle { color: #687d91; font-size: 13px; line-height: 1.6; margin: 8px 0 24px; }
+.auth-loading { color: #46627c; font-size: 13px; }
+#auth-login-form { display: flex; flex-direction: column; gap: 8px; }
+#auth-login-form label { margin-top: 8px; font-size: 12px; font-weight: 700; color: #324e66; }
+#auth-login-form input {
+  width: 100%; padding: 12px 13px; border-radius: 8px; border: 1px solid #cbd8e4;
+  background: #fff; font: inherit; font-size: 14px; color: #203047;
+}
+#auth-login-form input:focus { outline: 2px solid #9bc4e2; outline-offset: 1px; border-color: #477fa6; }
+#auth-submit {
+  margin-top: 16px; padding: 13px; border: 0; border-radius: 9px; background: #184f74;
+  color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;
+}
+#auth-submit:hover { background: #123e5c; }
+#auth-submit:disabled { opacity: .55; cursor: wait; }
+.auth-error { color: #a12631; background: #fff2f2; padding: 11px; border-radius: 7px; font-size: 12px; }
+.auth-note { margin: 26px 0 0; color: #8593a0; font-size: 11px; line-height: 1.5; }
+.auth-user { color: #607489; font-size: 11px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 600px) {
+  .auth-card { padding: 26px 20px; }
+  .auth-user { display: none; }
+  .topbar-actions { gap: 6px; }
+}
