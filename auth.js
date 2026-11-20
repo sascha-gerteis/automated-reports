@@ -71,9 +71,15 @@
     }
     try {
       client = window.supabase.createClient(cfg.url, cfg.publishableKey, {
-        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+        // Keep the login across refreshes within this tab, but not after closing it.
+        auth: {
+          storage: window.sessionStorage,
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true
+        }
       });
-      // Keep other open tabs in sync if the user logs out.
+      // Hide the dashboard if Supabase reports that the user signed out.
       client.auth.onAuthStateChange(function (event) {
         if (event === "SIGNED_OUT" && screen.hidden) {
           window.location.reload();
